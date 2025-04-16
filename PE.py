@@ -17,7 +17,8 @@ def main():
     with st.sidebar:
         st.header("Upload & Settings")
         uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
-        
+        if uploaded_file is None:
+            st.header("No file!")
         if uploaded_file is not None:
             # Display original image in sidebar
             image = Image.open(uploaded_file)
